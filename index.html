@@ -28,9 +28,10 @@
         <div class="container filters-section">
             <div class="input-group">
                 <input class="form-control border-end-0 border bg-light text-secondary" type="text"
-                    placeholder="Rechercher une recette" id="search-input">
+                    placeholder="Rechercher une recette..." id="search-input">
                 <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-light border-start-0 border" type="button">
+                    <button class="btn btn-outline-secondary bg-light border-start-0 border" id="search-button"
+                        type="button">
                         <i class="fa fa-search bg-light text-black"></i>
                     </button>
                 </span>
@@ -43,7 +44,7 @@
                     <select class="form-select select-ingredients"
                         style="background: #3282F7; color: #fff; background-image: none;"
                         aria-label="Choix ingrédients">
-                        <option selected>Ingédients</option>
+                        <option selected>Ingrédients</option>
                         <option value="1">One</option>
                     </select>
                     <div class="overlay-arrow-1"><svg class="arrow" width="16" height="10" viewBox="0 0 16 10"
@@ -94,6 +95,12 @@
     <script type="module" src="scripts/pages/index.js"></script>
     <!-- Models-->
     <script src="scripts/models/Recipe.js"></script>
+    <!-- Utils-->
+    <script src="scripts/utils/showRecipes.js"></script>
+    <script src="scripts/utils/sortRecipes.js"></script>
+
+
+
 </body>
 
 </html>
