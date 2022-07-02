@@ -1,0 +1,48 @@
+ul, li{
+    list-style-type: none;
+}
+.text-logo{
+    color: #D04F4F;
+}
+.filters-section{
+    position: relative;
+    top: 100px;
+    margin-bottom: 150px;
+    margin-top: 50px;
+}
+
+.fa-clock{
+    margin: auto;
+}
+
+.bg-card-body{
+    background-color: #E7E7E7;
+}
+.card-title{
+    font-size: 1.3rem;
+}
+.card-text-description{
+   height: 150px;
+   width: 180px;
+   /* white-space: nowrap;  */
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.overlay-arrow-1{
+    position: absolute;
+    top: 75%;
+    left: 13.5%;
+}
+
+.overlay-arrow-2{
+    position: absolute;
+    top: 75%;
+    left: 30%;
+}
+
+.overlay-arrow-3{
+    position: absolute;
+    top: 75%;
+    left: 47%;
+}
