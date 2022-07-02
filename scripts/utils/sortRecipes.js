@@ -13,6 +13,7 @@ function sortRecipes(allRecipes){
                 item.ingredients.find((ingredient) => ingredient.ingredient.toLowerCase().includes(searchBar.value))
                 ))
         }else if(searchBar.value.length < 3 ){
+            searchBar.value='';
             searchBar.placeholder = "Veuillez effectuer une recherche avec au moins 3 caractères svp..."
         }
     })
