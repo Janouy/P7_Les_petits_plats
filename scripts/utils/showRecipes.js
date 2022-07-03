@@ -1,3 +1,4 @@
+//affiche les recettes 
 function showRecipes(allRecipes){
 	let recipesList = allRecipes.map((recipe) => new Recipe(recipe))
 		const recipeCard = document.querySelector('.recipe-card-group')

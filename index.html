@@ -24,7 +24,7 @@
     <main>
         <div class="container filters-section">
             <div class="input-group">
-                <input class="form-control border-end-0 border bg-light text-secondary" type="text"
+                <input class="form-control form-control-search border-end-0 border bg-light text-secondary" type="text"
                     placeholder="Rechercher une recette..." autocomplete="off" id="search-input">
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary bg-light border-start-0 border" id="search-button"
@@ -37,7 +37,7 @@
                 </button>
             </div>
             <div class="row my-3">
-                <div class="col d-flex tags-wrapper"></div>
+                <div class="col d-flex tags-wrapper"> </div>
             </div>
             <div class="row">
                 <div class="col-2">
@@ -45,16 +45,13 @@
                         <div class="d-flex select-ingredients">
                             <input class="form-control form-control-ingredients border-end-0 text-light"
                                 style="background:#3282F7;" type="text" placeholder="Ingrédients" autocomplete="off"
-                                id="search-input">
-                            <svg class="arrow" width="25" height="15" viewBox="0 0 16 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                                id="search-input-ingredients">
+                            <svg class="arrow arrow-ingredient-select" width="25" height="15" viewBox="0 0 16 10"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
                                     stroke-width="2" />
                             </svg>
                         </div>
-                    </div>
-                    <div class="ingredients-list d-none flex-column flex-wrap text-light rounded"
-                        style="background:#3282F7;">
                     </div>
                 </div>
                 <div class="col-2">
@@ -62,7 +59,7 @@
                         <div class="d-flex select-appliance">
                             <input class="form-control form-control-appliance border-end-0 text-light "
                                 style="background:#68D9A4;" type="text" placeholder="Appareils" autocomplete="off"
-                                id="search-input">
+                                id="search-input-appliance">
                             <svg class="arrow" width="25" height="15" viewBox="0 0 16 10" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
@@ -76,7 +73,7 @@
                         <div class="d-flex select-ustensils">
                             <input class="form-control form-control-ustensils border-end-0 text-light"
                                 style="background:#ED6454;" type="text" placeholder="Ustensiles" autocomplete="off"
-                                id="search-input">
+                                id="search-input-ustensils">
                             <svg class="arrow" width="25" height="15" viewBox="0 0 16 10" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
@@ -85,6 +82,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="ingredients-list d-none flex-column flex-wrap text-light rounded" style="background:#3282F7;">
             </div>
         </div>
         <div>
@@ -107,8 +106,10 @@
     <script src="scripts/utils/sortRecipes.js"></script>
     <script src="scripts/utils/refreshList.js"></script>
     <script src="scripts/utils/showIngredients.js"></script>
-    <script src="scripts/utils/addTags.js"></script>
-
+    <script src="scripts/utils/sortIngredients.js"></script>
+    <script src="scripts/utils/addTag.js"></script>
+    <script src="scripts/utils/deleteTag.js"></script>
+    <script src="scripts/utils/openLists.js"></script>
 </body>
 
 </html>

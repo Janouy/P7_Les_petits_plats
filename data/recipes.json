@@ -209,7 +209,7 @@
 					"unit": "cl"
 				},
 				{
-					"ingredient": "Sucre en Poudre",
+					"ingredient": "Sucre en poudre",
 					"quantity": 100,
 					"unit": "grammes"
 				},
@@ -283,7 +283,7 @@
 					"quantity": 2
 				},
 				{
-					"ingredient": "Sucre en Poudre",
+					"ingredient": "Sucre en poudre",
 					"quantity": "110",
 					"unit": "grammes"
 				},
@@ -450,7 +450,7 @@
 					"unit": "grammes"
 				},
 				{
-					"ingredient": "Échalote",
+					"ingredient": "Echalote",
 					"quantity": 2
 				},
 				{
