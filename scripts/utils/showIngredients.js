@@ -1,4 +1,5 @@
 const ingredientsListWrapper = document.querySelector('.ingredients-list');
+
 //tri des ingrédients par ordre alphabétiques
 function compareIngredient(a, b) {
     if (a.toLowerCase() < b.toLowerCase()) {
@@ -13,7 +14,7 @@ function compareIngredient(a, b) {
 function showIngredients(ingredientsListSort){
     ingredientsListSort.forEach((ingredient) =>  ingredientsListWrapper.innerHTML += `<div data-name="${ingredient}" class="ingredient mx-3">${ingredient}</div>`)
     document.querySelectorAll('.ingredient').forEach((item) => item.addEventListener('click', () => {
-    	addTag(item.dataset.name)
+    	addTag(item.dataset.name, ingredientsAfterTag)
     }))
 }
 

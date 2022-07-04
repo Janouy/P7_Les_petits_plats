@@ -1,5 +1,7 @@
+let ingredientsAfterTag;
 
 function sortIngredients(ingredientsListSort){
+	ingredientsAfterTag = ingredientsListSort;
    	//recherche des ingrédient dans la searchBar ingredients
        searchBarIngredients.addEventListener('input', () => {
         if(searchBarIngredients.value.length >=3 ){
@@ -16,8 +18,8 @@ function sortIngredients(ingredientsListSort){
 			// })
         }else if(searchBarIngredients.value.length <= 3){
 			openList(searchBarIngredients.value.length);
-			ingredientsListWrapper.innerHTML='';
-			ingredientsListSort.forEach((ingredient) =>  ingredientsListWrapper.innerHTML += `<div data-name="${ingredient}" class="ingredient mx-3">${ingredient}</div>`);
+			ingredientsListWrapper.innerHTML ='';
+			showIngredients(ingredientsListSort)
 		}
     })
 }
