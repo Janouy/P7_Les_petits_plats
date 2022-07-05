@@ -12,4 +12,11 @@ function addTag(ingredientTag, ingredientsAfterTag){
     ingredientsListWrapper.innerHTML ='';
     showIngredients(ingredientsAfterTag);
     openList(inputLenght)
+    //suppression du contenu html de la liste de recettes
+	recipeCard.innerHTML = '';
+	let recipiesSortedByTag = recipies.map((recipe)=> recipe).filter((item) => 
+		item.ingredients.find((ingredient) => ingredient.ingredient.toLowerCase().includes(ingredientTag.toLowerCase()))
+	)
+	console.log(recipiesSortedByTag)
+	showRecipes(recipiesSortedByTag)
 }

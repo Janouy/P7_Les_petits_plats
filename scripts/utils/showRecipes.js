@@ -1,3 +1,4 @@
+let recipies;
 //affiche les recettes 
 function showRecipes(allRecipes){
 	let recipesList = allRecipes.map((recipe) => new Recipe(recipe))
@@ -5,4 +6,5 @@ function showRecipes(allRecipes){
 		recipesList.forEach((recipe) => {
 			recipeCard.appendChild(recipe.createRecipeCard())
 		})
+		recipies = allRecipes;
 }
