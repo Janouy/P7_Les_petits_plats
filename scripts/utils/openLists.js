@@ -14,9 +14,8 @@ function openList(inputLength){
 
 }
 
-
-
+/*
 selectIngredientArrow.addEventListener('click', () => {
     let inputLenght =3;
     openList(inputLenght)
-})
+})*/

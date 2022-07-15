@@ -8,15 +8,10 @@ function sortRecipes(allRecipes){
     let recipesSorted;
     searchBar.addEventListener('input', () =>{
         if(searchBar.value.length >=3 ){
-            //suppression du contenu html de la liste de recettes
-            recipeCard.innerHTML = '';
-            recipesSorted = allRecipes.map((recipe)=> recipe).filter((item) => 
-                item.name.toLowerCase().includes(searchBar.value.toLowerCase()) || 
-                item.description.toLowerCase().includes(searchBar.value.toLowerCase()) ||
-                item.ingredients.find((ingredient) => ingredient.ingredient.toLowerCase().includes(searchBar.value.toLowerCase()))
-            )
+            recipesManager.applyFilters(searchBar.value.toLowerCase())
             sortIngredientsList(recipesSorted)
         }else if(searchBar.value.length < 3 ){
+            recipesManager.tagFilter(allRecipes)
             sortIngredientsList(allRecipes)
         }
     })

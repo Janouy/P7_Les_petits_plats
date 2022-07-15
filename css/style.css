@@ -35,7 +35,7 @@ ul, li{
     font-size: 1.2rem;
     cursor:pointer;
 }
-.form-control-appliance{
+.form-control-appliances{
     background: #68D9A4;
     height: 50px;
     font-size: 1.2rem;
@@ -48,7 +48,7 @@ ul, li{
     font-size: 1.2rem;
     cursor:pointer;
 }
-.form-control-ingredients::placeholder, .form-control-appliance::placeholder, .form-control-ustensils::placeholder{
+.form-control-ingredients::placeholder, .form-control-appliances::placeholder, .form-control-ustensils::placeholder{
     color: #fff;
 }
 
@@ -58,22 +58,36 @@ ul, li{
     right: 30px;
     cursor:pointer;
 }
-.ingredients-list{
-    width: 1000px;
-    height: 1000px;
+.items-list{
+    max-width: 1200px;
+    max-height: 500px; 
+    display: inline-block
 }
-.ingredient{
+.item{
     cursor: pointer;
 }
 
-.tag-ingredient{
+.tag-ingredients{
     background: #3282F7;
     color: #fff;
     padding: 3px;
     border-radius: 5px;
 }
+.tag-appliances{
+    background: #68D9A4;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+.tag-ustensils{
+    background: #ED6454;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
 
-.deleteTagIngredientButton{
+
+.deleteTag-ingredients{
     background : #3282F7;
     padding-right: 2px;
 }

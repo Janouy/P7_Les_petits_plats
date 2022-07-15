@@ -7,8 +7,8 @@ function sortIngredientsList(recipies){
     //suppression du contenu html de la liste d'ingrédients
     ingredientsListWrapper.innerHTML='';
     //mise à jour affichages des recettes
-    showRecipes(recipies)
-    showIngredients(ingredientSorted)
+    //showRecipes(recipies)
+    //showIngredients(ingredientSorted)
     sortIngredients(ingredientSorted)
 }
 
