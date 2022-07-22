@@ -3,6 +3,6 @@
 	"useTabs": true,
 	"trailingComma": "all",
 	"tabWidth": 4,
-	"max_line_length": 120,
+	"printWidth": 200,
 	"semi": true
 }
