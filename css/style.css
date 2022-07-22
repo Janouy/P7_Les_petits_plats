@@ -23,26 +23,74 @@ ul, li{
 }
 .card-text-description{
    height: 150px;
-   width: 180px;
    /* white-space: nowrap;  */
    overflow: hidden;
    text-overflow: ellipsis;
 }
 
-.overlay-arrow-1{
-    position: absolute;
-    top: 75%;
-    left: 13.5%;
+.form-control-ingredients{
+    background: #3282F7;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor:pointer;
+}
+.form-control-appliances{
+    background: #68D9A4;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor:pointer;
 }
 
-.overlay-arrow-2{
-    position: absolute;
-    top: 75%;
-    left: 30%;
+.form-control-ustensils{
+    background: #ED6454;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor:pointer;
+}
+.form-control-ingredients::placeholder, .form-control-appliances::placeholder, .form-control-ustensils::placeholder{
+    color: #fff;
 }
 
-.overlay-arrow-3{
-    position: absolute;
-    top: 75%;
-    left: 47%;
+.arrow{
+    position: relative;
+    top:18px;
+    right: 30px;
+    cursor:pointer;
+}
+.items-list{
+    max-width: 1200px;
+    max-height: 500px; 
+    display: inline-block
+}
+.item{
+    cursor: pointer;
+}
+
+.tag-ingredients{
+    background: #3282F7;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+.tag-appliances{
+    background: #68D9A4;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+.tag-ustensils{
+    background: #ED6454;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+
+.deleteTag-ingredients{
+    background : #3282F7;
+    padding-right: 2px;
+}
+
+.ingredients-list{
+    font-size: 1rem;
 }
