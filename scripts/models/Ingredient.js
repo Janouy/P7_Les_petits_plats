@@ -1,20 +1,26 @@
-class Ingredient{
-    constructor(data){
-        this.name = data.ingredient;
-        this.quantity = data.quantity;
-        this.unit = data.unit;
-    }
-    
-    contains(searchBarInput){
-        return this.name.toLowerCase().includes(searchBarInput.toLowerCase());
-    }
+class Ingredient {
+	constructor(data) {
+		this.name = data.ingredient;
+		this.quantity = data.quantity;
+		this.unit = data.unit;
+	}
 
-    convertToHtml(){
-        return '<li>' + this.name + (this.quantity? ' ' + this.quantity : '') + (this.unit? ' ' + this.unit : '') + '</li>';
-    }
+	contains(text) {
+		return this.name.toLowerCase().includes(text.toLowerCase());
+	}
 
-    getName(){
-        return this.name;
-    }
+	convertToHtml() {
+		return (
+			'<li class="ingredients-list">' +
+			this.name +
+			":" +
+			(this.quantity ? " " + this.quantity : "") +
+			(this.unit ? " " + this.unit : "") +
+			"</li>"
+		);
+	}
 
+	getName() {
+		return this.name;
+	}
 }

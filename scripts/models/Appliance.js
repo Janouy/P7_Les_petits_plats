@@ -1,14 +1,13 @@
-class Appliance{
-    constructor(data){
-        this.appliance = data;
-    }
-    
-    contains(searchBarInput){
-        return this.appliance.toLowerCase().includes(searchBarInput.toLowerCase());
-    }
+class Appliance {
+	constructor(data) {
+		this.appliance = data;
+	}
 
-    convertToHtml(){
-        return '<li>' + this.appliance + '</li>';
-    }
+	contains(text) {
+		return this.appliance.toLowerCase().includes(text.toLowerCase());
+	}
 
+	convertToHtml() {
+		return "<li>" + this.appliance + "</li>";
+	}
 }

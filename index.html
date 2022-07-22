@@ -15,91 +15,93 @@
         <div class="text-center bg-white fixed-top">
             <div class="d-flex flex-column justify-content-center">
                 <div> <a href="index.html" class="mt-3 ms-3 text-decoration-none" data-bs-toggle="tooltip"
-                        data-bs-placement="right"><img src="./logo/cook.png" alt="Logo Les petits plats"></a></div>
-                <div class="text-logo fw-bold fs-2"> Les Petits
-                    Plats</div>
+                        data-bs-placement="right">
+                        <img src="./logo/cook.png" alt="Logo Les petits plats">
+                        <div class="text-logo fw-bold fs-2"> Les Petits Plats</div>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="container filters-section">
-            <div class="input-group">
-                <input class="form-control form-control-search border-end-0 border bg-light text-secondary" type="text"
-                    placeholder="Rechercher une recette..." autocomplete="off" id="search-input">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-light border-start-0 border" id="search-button"
-                        type="button">
-                        <i class="fa fa-search bg-light text-black"></i>
-                    </button>
-                </span>
-                <button class="btn btn-outline-secondary bg-light border ms-2" id="refresh-button" type="button">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
-            </div>
-            <div class="row my-3">
-                <div class="col d-flex tags-wrapper"></div>
-            </div>
-            <div class="row">
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="d-flex select-ingredients">
-                            <input class="form-control form-control-ingredients border-end-0 text-light"
-                                style="background:#3282F7;" type="text" placeholder="Ingrédients" autocomplete="off"
-                                id="search-input-ingredients">
-                            <svg class="arrow arrow-ingredients-select" width="25" height="15" viewBox="0 0 16 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
-                                    stroke-width="2" />
-                            </svg>
+        <div class="container-fluid filters-section">
+            <div class="row mx-5">
+                <div class="input-group">
+                    <input class="form-control form-control-search border-end-0 border bg-light text-secondary"
+                        type="text" placeholder="Rechercher une recette..." autocomplete="off" id="search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-light border-start-0 border" id="search-button"
+                            type="button">
+                            <i class="fa fa-search bg-light text-black"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="row my-3">
+                    <div class="col d-flex tags-wrapper"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="d-flex select-ingredients">
+                                <input class="form-control form-control-ingredients border-end-0 text-light"
+                                    style="background:#3282F7;" type="text" placeholder="Ingrédients" autocomplete="off"
+                                    id="search-input-ingredients">
+                                <svg class="arrow arrow-ingredients-select" width="25" height="15" viewBox="0 0 16 10"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
+                                        stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="d-flex select-appliance">
+                                <input class="form-control form-control-appliances border-end-0 text-light "
+                                    style="background:#68D9A4;" type="text" placeholder="Appareils" autocomplete="off"
+                                    id="search-input-appliances">
+                                <svg class="arrow arrow-appliances-select" width="25" height="15" viewBox="0 0 16 10"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
+                                        stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="d-flex select-ustensils">
+                                <input class="form-control form-control-ustensils border-end-0 text-light"
+                                    style="background:#ED6454;" type="text" placeholder="Ustensiles" autocomplete="off"
+                                    id="search-input-ustensils">
+                                <svg class="arrow arrow-ustensils-select" width="25" height="15" viewBox="0 0 16 10"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
+                                        stroke-width="2" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="d-flex select-appliance">
-                            <input class="form-control form-control-appliances border-end-0 text-light "
-                                style="background:#68D9A4;" type="text" placeholder="Appareils" autocomplete="off"
-                                id="search-input-appliances">
-                            <svg class="arrow arrow-appliances-select" width="25" height="15" viewBox="0 0 16 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
-                                    stroke-width="2" />
-                            </svg>
-                        </div>
-                    </div>
+                <div class="items-list d-none flex-column flex-wrap text-light rounded">
                 </div>
-                <div class="col-2">
-                    <div class="input-group">
-                        <div class="d-flex select-ustensils">
-                            <input class="form-control form-control-ustensils border-end-0 text-light"
-                                style="background:#ED6454;" type="text" placeholder="Ustensiles" autocomplete="off"
-                                id="search-input-ustensils">
-                            <svg class="arrow arrow-ustensils-select" width="25" height="15" viewBox="0 0 16 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1.33447L8.00465 8.13311L14.5973 1.33447" stroke="#E9E9E9"
-                                    stroke-width="2" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="items-list d-none flex-column flex-wrap text-light rounded">
             </div>
         </div>
         <div>
-            <div class="container">
-                <div class="card-group">
-                    <div class="row recipe-card-group row-cols-1 row-cols-md-3 g-4">
-
+            <div class="container-fluid">
+                <div class="row mx-5">
+                    <div class="card-group">
+                        <div class="row recipe-card-group row-cols-1 row-cols-md-3 g-4"></div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </main>
     <!-- Pages-->
     <script type="module" src="scripts/pages/index.js"></script>
     <!-- Models-->
+    <script src="scripts/models/Page_M.js"></script>
     <script src="scripts/models/Recipes_M.js"></script>
     <script src="scripts/models/Recipe.js"></script>
     <script src="scripts/models/Ingredients_M.js"></script>
@@ -110,17 +112,6 @@
     <script src="scripts/models/Ustensil.js"></script>
     <script src="scripts/models/TagFilter.js"></script>
     <script src="scripts/models/Tag.js"></script>
-    <!-- Utils-->
-    <script src="scripts/utils/showRecipes.js"></script>
-    <script src="scripts/utils/sortRecipes.js"></script>
-    <script src="scripts/utils/refreshList.js"></script>
-    <script src="scripts/utils/showIngredients.js"></script>
-    <script src="scripts/utils/sortIngredients.js"></script>
-    <script src="scripts/utils/addTag.js"></script>
-    <script src="scripts/utils/deleteTag.js"></script>
-    <script src="scripts/utils/openLists.js"></script>
-    <script src="scripts/utils/sortIngredientsList.js"></script>
-    <script src="scripts/utils/sortByTag.js"></script>
 </body>
 
 </html>
