@@ -8,9 +8,7 @@ class Ingredients_M {
 	}
 
 	show() {
-		return this.ingredients
-			.map((ingredient) => ingredient.convertToHtml())
-			.reduce((total, next) => total.concat(next));
+		return this.ingredients.map((ingredient) => ingredient.convertToHtml()).reduce((total, next) => total.concat(next));
 	}
 
 	extract() {

@@ -2,6 +2,7 @@ class Page_M {
 	constructor(datas) {
 		this.recipes_M = new Recipes_M(datas.recipes, this);
 		this.tags = [];
+		this.deletedRecipes = [];
 	}
 
 	extractIngredients(recipes) {
@@ -58,7 +59,7 @@ class Page_M {
 		return allUniqUstensils;
 	}
 
-	tagFilter(recipesFiltered) {
+	reloadTagFilter(recipesFiltered) {
 		let recipesFilteredWithtag;
 		for (let i = 0; i < this.tags.length; i++) {
 			if (this.tags[i].type === "ingredients") {
@@ -69,10 +70,39 @@ class Page_M {
 				this.recipes_M.recipes = this.recipesFilteredTags;
 			} else if (this.tags[i].type === "ustensils") {
 				recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsUstensil(this.tags[i].title));
+				this.recipes_M.recipes = this.recipesFilteredTags;
 			}
 		}
 		this.recipes_M.recipes = recipesFilteredWithtag;
 		console.log(this.recipes_M.recipes.length);
-		this.recipes_M.show(this.recipes);
+		this.recipes_M.show(this.recipes_M.recipes);
+	}
+
+	addTagFilter(recipesFiltered, title) {
+		let recipesFilteredWithtag;
+		if (this.tags[this.tags.length - 1].type === "ingredients") {
+			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsIngredient(this.tags[this.tags.length - 1].title));
+			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsIngredient(this.tags[this.tags.length - 1].title)) });
+			this.recipes_M.recipes = this.recipesFilteredTags;
+		} else if (this.tags[this.tags.length - 1].type === "appliances") {
+			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsAppliance(this.tags[this.tags.length - 1].title));
+			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsAppliance(this.tags[this.tags.length - 1].title)) });
+			this.recipes_M.recipes = this.recipesFilteredTags;
+		} else if (this.tags[this.tags.length - 1].type === "ustensils") {
+			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsUstensil(this.tags[this.tags.length - 1].title));
+			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsUstensil(this.tags[this.tags.length - 1].title)) });
+			this.recipes_M.recipes = this.recipesFilteredTags;
+		}
+		this.recipes_M.recipes = recipesFilteredWithtag;
+		console.log(this.recipes_M.recipes.length);
+		this.recipes_M.show(this.recipes_M.recipes);
+	}
+
+	deleteTagFilter(recipesFiltered, tag) {
+		let recipeToFind = this.deletedRecipes.find((recipe) => recipe.item.toLowerCase() == tag.toLowerCase());
+		let indexToFind = this.deletedRecipes.findIndex((recipe) => recipe.item.toLowerCase() == tag.toLowerCase());
+		this.deletedRecipes.splice(indexToFind, 1);
+		let recipesReAddtag = recipesFiltered.concat(recipeToFind.recipes);
+		this.addTagFilter(recipesReAddtag, tag);
 	}
 }
