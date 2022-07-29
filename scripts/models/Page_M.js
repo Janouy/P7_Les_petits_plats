@@ -3,6 +3,7 @@ class Page_M {
 		this.recipes_M = new Recipes_M(datas.recipes, this);
 		this.tags = [];
 		this.deletedRecipes = [];
+		this.recipesFilteredWithtag;
 	}
 
 	extractIngredients(recipes) {
@@ -59,23 +60,21 @@ class Page_M {
 		return allUniqUstensils;
 	}
 
-	reloadTagFilter(recipesFiltered) {
-		let recipesFilteredWithtag;
+	reloadTagFilter(recipes) {
 		for (let i = 0; i < this.tags.length; i++) {
 			if (this.tags[i].type === "ingredients") {
-				recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsIngredient(this.tags[i].title));
-				this.recipes_M.recipes = this.recipesFilteredTags;
+				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsIngredient(this.tags[i].title));
+				recipes = this.recipesFilteredWithtag;
 			} else if (this.tags[i].type === "appliances") {
-				recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsAppliance(this.tags[i].title));
-				this.recipes_M.recipes = this.recipesFilteredTags;
+				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsAppliance(this.tags[i].title));
+				recipes = this.recipesFilteredWithtag;
 			} else if (this.tags[i].type === "ustensils") {
-				recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsUstensil(this.tags[i].title));
-				this.recipes_M.recipes = this.recipesFilteredTags;
+				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsUstensil(this.tags[i].title));
+				recipes = this.recipesFilteredWithtag;
 			}
 		}
-		this.recipes_M.recipes = recipesFilteredWithtag;
-		console.log(this.recipes_M.recipes.length);
-		this.recipes_M.show(this.recipes_M.recipes);
+		console.log(recipes.length);
+		this.recipes_M.show(recipes);
 	}
 
 	addTagFilter(recipesFiltered, title) {
@@ -83,19 +82,16 @@ class Page_M {
 		if (this.tags[this.tags.length - 1].type === "ingredients") {
 			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsIngredient(this.tags[this.tags.length - 1].title));
 			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsIngredient(this.tags[this.tags.length - 1].title)) });
-			this.recipes_M.recipes = this.recipesFilteredTags;
 		} else if (this.tags[this.tags.length - 1].type === "appliances") {
 			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsAppliance(this.tags[this.tags.length - 1].title));
 			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsAppliance(this.tags[this.tags.length - 1].title)) });
-			this.recipes_M.recipes = this.recipesFilteredTags;
 		} else if (this.tags[this.tags.length - 1].type === "ustensils") {
 			recipesFilteredWithtag = recipesFiltered.filter((recipe) => recipe.containsUstensil(this.tags[this.tags.length - 1].title));
 			this.deletedRecipes.push({ item: title, recipes: recipesFiltered.filter((recipe) => !recipe.containsUstensil(this.tags[this.tags.length - 1].title)) });
-			this.recipes_M.recipes = this.recipesFilteredTags;
 		}
 		this.recipes_M.recipes = recipesFilteredWithtag;
-		console.log(this.recipes_M.recipes.length);
 		this.recipes_M.show(this.recipes_M.recipes);
+		console.log(this.recipes_M.recipes.length);
 	}
 
 	deleteTagFilter(recipesFiltered, tag) {
