@@ -138,7 +138,6 @@ class Recipes_M {
 			this.recipes = this.data.map((recipe) => new Recipe(recipe));
 			this.page_M.tagFilter(this.recipes);
 		}
-		console.log(this.recipes.length);
 	}
 
 	// 	tagFilter(recipesFiltered) {
