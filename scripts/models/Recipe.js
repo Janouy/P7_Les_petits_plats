@@ -6,7 +6,9 @@ class Recipe {
 		this.ustensils = new Ustensils_M(data.ustensils);
 		this.name = data.name;
 		this.time = data.time;
-		this.description = data.description;
+		if (data.description.length > 120) {
+			this.description = data.description.substring(0, 120) + "...";
+		}
 	}
 
 	showCard() {
