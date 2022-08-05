@@ -45,7 +45,9 @@ class Recipe {
 	containsUstensil(text) {
 		return this.ustensils.contains(text);
 	}
-
+	containsTag(text) {
+		return this.ustensils.contains(text) || this.appliances.contains(text) || this.ingredients.contains(text);
+	}
 	extractIngredients() {
 		return this.ingredients.extract();
 	}

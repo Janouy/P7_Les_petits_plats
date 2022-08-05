@@ -4,7 +4,6 @@ class Recipes_M {
 		this.data = data;
 		this.recipes = data.map((recipe) => new Recipe(recipe));
 		this.show();
-		// this.tags = [];
 		const searchBar = document.getElementById("search-input");
 		//affiche les recettes triées selon la recherche de la searchBar principale
 		searchBar.addEventListener("input", () => {
@@ -14,15 +13,23 @@ class Recipes_M {
 				this.recipes = data.map((recipe) => new Recipe(recipe));
 				this.show();
 			} else if (searchBar.value.length < 3 && this.page_M.tags.length >= 1) {
-				this.page_M.reloadTagFilter(data.map((recipe) => new Recipe(recipe)));
+				this.page_M.removeTagFilter(data.map((recipe) => new Recipe(recipe)));
 			}
-			console.log(this.recipes.length);
 		});
 	}
 
+	//champ de recherche bar principale
 	applyFilters(text) {
 		const searchBar = document.getElementById("search-input");
-		let recipesFiltered = this.recipes.filter((recipe) => recipe.contains(text));
+		//utilisation boucle for au lieu d'un filter
+		let recipesFiltered = [];
+		for (let recipes_it = 0; recipes_it < this.recipes.length; recipes_it++) {
+			if (this.recipes[recipes_it].contains(text)) {
+				recipesFiltered.push(this.recipes[recipes_it]);
+			}
+		}
+		//algo1
+		//let recipesFiltered = this.recipes.filter((recipe) => recipe.contains(text));
 		if (recipesFiltered.length >= 1) {
 			this.show(recipesFiltered);
 			this.generateTagsFilter(recipesFiltered);
@@ -38,7 +45,6 @@ class Recipes_M {
 			searchBar.value = "";
 			searchBar.placeholder = "Rechercher une recette...";
 		}
-		console.log(this.recipes.length);
 	}
 
 	generateTagsFilter(recipes) {
@@ -51,37 +57,43 @@ class Recipes_M {
 		const recipeCard = document.querySelector(".recipe-card-group");
 		recipeCard.innerHTML = "";
 		const dataToShow = data ? data : this.recipes;
-		dataToShow.forEach((recipe) => {
-			recipeCard.appendChild(recipe.showCard());
-		});
+		//modif boucle forEach en while
+		let dataToShow_it = 0;
+		while (dataToShow_it < dataToShow.length) {
+			recipeCard.appendChild(dataToShow[dataToShow_it].showCard());
+			dataToShow_it++;
+		}
+		//algo 1
+		// dataToShow.forEach((recipe) => {
+		// 	recipeCard.appendChild(recipe.showCard());
+		// });
 		this.generateTagsFilter(dataToShow);
 	}
 
 	addTag(title, type) {
 		new Tag(title, type, this);
-		this.page_M.tags.push({ title: title, type: type });
-		this.page_M.addTagFilter(this.recipes, title);
+		this.page_M.tags.push(title);
+		this.page_M.addTagFilter(this.recipes);
 	}
 
 	deleteItemTag(tag, datasetTag) {
 		const searchBar = document.getElementById("search-input");
 		tag.parentNode.remove();
-		let indexToFind = this.page_M.tags.findIndex((elt) => elt.title === datasetTag);
+		let indexToFind = this.page_M.tags.findIndex((elt) => elt === datasetTag);
 		this.page_M.tags.splice(indexToFind, 1);
 		if (searchBar.value.length >= 3 && this.page_M.tags.length === 0) {
 			this.recipes = this.data.map((recipe) => new Recipe(recipe));
 			this.applyFilters(searchBar.value.toLowerCase());
 		} else if (searchBar.value.length >= 3 && this.page_M.tags.length >= 1) {
-			//this.recipes = this.data.map((recipe) => new Recipe(recipe));
+			this.recipes = this.data.map((recipe) => new Recipe(recipe));
 			this.applyFilters(searchBar.value.toLowerCase());
-			this.page_M.deleteTagFilter(this.recipes, datasetTag);
+			this.page_M.removeTagFilter(this.recipes);
 		} else if (searchBar.value.length <= 2 && this.page_M.tags.length === 0) {
 			this.recipes = this.data.map((recipe) => new Recipe(recipe));
 			this.show(this.recipes);
 		} else if (searchBar.value.length <= 2 && this.page_M.tags.length >= 1) {
-			//this.recipes = this.data.map((recipe) => new Recipe(recipe));
-			this.page_M.deleteTagFilter(this.recipes, datasetTag);
+			this.recipes = this.data.map((recipe) => new Recipe(recipe));
+			this.page_M.removeTagFilter(this.recipes);
 		}
-		console.log(this.recipes.length);
 	}
 }
