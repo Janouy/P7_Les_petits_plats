@@ -6,8 +6,9 @@ class Recipe {
 		this.ustensils = new Ustensils_M(data.ustensils);
 		this.name = data.name;
 		this.time = data.time;
+		this.description = data.description;
 		if (data.description.length > 120) {
-			this.description = data.description.substring(0, 120) + "...";
+			this.descriptionText = data.description.substring(0, 120) + "...";
 		}
 	}
 
@@ -24,7 +25,7 @@ class Recipe {
             </div>
             <div class="row d-flex justify-content-between">
                 <ul class="card-text ingredient-wrapper fw-bold col-7">${this.ingredients.show()}</ul>
-                <div class="card-text card-text-description  fw-bold col-5">${this.description}</div>
+                <div class="card-text card-text-description  fw-bold col-5">${this.descriptionText}</div>
             </div>
             </div>
         `;
@@ -33,7 +34,7 @@ class Recipe {
 	}
 
 	contains(text) {
-		return this.name.toLowerCase().includes(text.toLowerCase()) || this.description.toLowerCase().includes(text.toLowerCase()) || this.ingredients.contains(text);
+		return this.name.includes(text.toLowerCase()) || this.description.toLowerCase().includes(text.toLowerCase()) || this.ingredients.contains(text);
 	}
 
 	containsIngredient(text) {

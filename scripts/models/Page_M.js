@@ -60,19 +60,19 @@ class Page_M {
 	}
 
 	tagFilter(recipes) {
+		let filteredRecipes = recipes;
 		for (let i = 0; i < this.tags.length; i++) {
 			if (this.tags[i].type === "ingredients") {
-				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsIngredient(this.tags[i].title));
-				recipes = this.recipesFilteredWithtag;
+				this.recipesFilteredWithtag = filteredRecipes.filter((recipe) => recipe.containsIngredient(this.tags[i].title));
+				filteredRecipes = this.recipesFilteredWithtag;
 			} else if (this.tags[i].type === "appliances") {
-				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsAppliance(this.tags[i].title));
-				recipes = this.recipesFilteredWithtag;
+				this.recipesFilteredWithtag = filteredRecipes.filter((recipe) => recipe.containsAppliance(this.tags[i].title));
+				filteredRecipes = this.recipesFilteredWithtag;
 			} else if (this.tags[i].type === "ustensils") {
-				this.recipesFilteredWithtag = recipes.filter((recipe) => recipe.containsUstensil(this.tags[i].title));
-				recipes = this.recipesFilteredWithtag;
+				this.recipesFilteredWithtag = filteredRecipes.filter((recipe) => recipe.containsUstensil(this.tags[i].title));
+				filteredRecipes = this.recipesFilteredWithtag;
 			}
 		}
-		console.log(recipes.length);
-		this.recipes_M.show(recipes);
+		this.recipes_M.show(filteredRecipes);
 	}
 }
