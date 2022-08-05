@@ -60,14 +60,14 @@ class Page_M {
 	}
 
 	removeTagFilter(recipes) {
-		let recipesTagadd;
+		let recipesTagAdd;
 		let i = 0;
 		while (i < this.tags.length) {
-			recipesTagadd = recipes.filter((recipe) => recipe.containsTag(this.tags[i]));
-			recipes = recipesTagadd;
+			recipesTagAdd = recipes.filter((recipe) => recipe.containsTag(this.tags[i]));
+			recipes = recipesTagAdd;
 			i++;
 		}
-		this.recipes_M.show(recipesTagadd);
+		this.recipes_M.show(recipesTagAdd);
 	}
 
 	addTagFilter(recipes) {
