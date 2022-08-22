@@ -19,7 +19,7 @@ class Recipes_M {
 			console.log(this.recipes.length);
 		});
 	}
-
+	//tri et actualise la liste de recettes selon les caractères entrés dans la recherche principal
 	applyFilters(text) {
 		const searchBar = document.getElementById("search-input");
 		let recipesFiltered = this.recipes.filter((recipe) => recipe.contains(text));
@@ -38,15 +38,15 @@ class Recipes_M {
 			searchBar.value = "";
 			searchBar.placeholder = "Rechercher une recette...";
 		}
-		console.log(this.recipes.length);
 	}
-
+	//récupère les listes d'ingredients, appareils et ustensils
 	generateTagsFilter(recipes) {
 		new TagFilter(this.page_M.extractIngredients(recipes), "ingredients", "background:#3282F7", "Ingrédients", this);
 		new TagFilter(this.page_M.extractAppliances(recipes), "appliances", "background:#68D9A4", "Appareils", this);
 		new TagFilter(this.page_M.extractUstensils(recipes), "ustensils", "background:#ED6454", "Ustensiles", this);
 	}
 
+	//affiche la liste de recettes dans le dom
 	show(data) {
 		const recipeCard = document.querySelector(".recipe-card-group");
 		recipeCard.innerHTML = "";
@@ -56,13 +56,13 @@ class Recipes_M {
 		});
 		this.generateTagsFilter(dataToShow);
 	}
-
+	//ajoute un tag
 	addTag(title, type) {
 		new Tag(title, type, this);
 		this.page_M.tags.push({ title: title, type: type });
 		this.page_M.tagFilter(this.recipes);
 	}
-
+	//supprime un tag
 	deleteItemTag(tag, datasetTag) {
 		const searchBar = document.getElementById("search-input");
 		tag.parentNode.remove();

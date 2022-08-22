@@ -11,7 +11,7 @@ class Recipe {
 			this.descriptionText = data.description.substring(0, 120) + "...";
 		}
 	}
-
+	//affiche les recettes dans la dom
 	showCard() {
 		const wrapper = document.createElement("div");
 		wrapper.classList.add("card", "border-0");
@@ -32,30 +32,31 @@ class Recipe {
 		wrapper.innerHTML = recipeCard;
 		return wrapper;
 	}
-
+	//vérifie si une recette contient un "text" dans la description les ingrédients ou le nom => pour la recherche principale
 	contains(text) {
 		return this.name.includes(text.toLowerCase()) || this.description.toLowerCase().includes(text.toLowerCase()) || this.ingredients.contains(text);
 	}
-
+	// verifie si la recette contient un ingrédient => pour la recherche avancée par tag
 	containsIngredient(text) {
 		return this.ingredients.contains(text);
 	}
-
+	// verifie si la recette contient un appareil => pour la recherche avancée par tag
 	containsAppliance(text) {
 		return this.appliances.contains(text);
 	}
-
+	// verifie si la recette contient un ustensil => pour la recherche avancée par tag
 	containsUstensil(text) {
 		return this.ustensils.contains(text);
 	}
-
+	//prend les ingrédients => pour l'affichage des ingrédients dans la liste de tag ingredients
 	extractIngredients() {
 		return this.ingredients.extract();
 	}
+	//prend les appareils => pour l'affichage des appareils dans la liste de tag ingredients
 	extractAppliances() {
 		return this.appliances.extract();
 	}
-
+	//prend les ustensils => pour l'affichage des ustensils dans la liste de tag ingredients
 	extractUstensils() {
 		return this.ustensils.extract();
 	}

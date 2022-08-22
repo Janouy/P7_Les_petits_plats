@@ -5,6 +5,7 @@ class Page_M {
 		this.recipesFilteredWithtag;
 	}
 
+	//récupère la liste des ingrédients et retourne un de tous les ingrédinets sans doublons
 	extractIngredients(recipes) {
 		const allIngredients = recipes.map((recipe) => recipe.extractIngredients()).reduce((tot, next) => tot.concat(next));
 		const allUniqIngredient = Array.from(
@@ -22,7 +23,7 @@ class Page_M {
 		);
 		return allUniqIngredient;
 	}
-
+	//récupère la liste des appareils et retourne un de tous les appareils sans doublons
 	extractAppliances(recipes) {
 		const allAppliances = recipes.map((recipe) => recipe.appliance);
 		const allUniqAppliance = Array.from(
@@ -40,7 +41,7 @@ class Page_M {
 		);
 		return allUniqAppliance;
 	}
-
+	//récupère la liste des ustensils et retourne un de tous les ustensils sans doublons
 	extractUstensils(recipes) {
 		const allUstensils = recipes.map((recipe) => recipe.extractUstensils()).reduce((tot, next) => tot.concat(next));
 		const allUniqUstensils = Array.from(
@@ -58,7 +59,7 @@ class Page_M {
 		);
 		return allUniqUstensils;
 	}
-
+	//actualise la liste des recettes selon les tags ajoutés par l'utilisateur
 	tagFilter(recipes) {
 		let filteredRecipes = recipes;
 		for (let i = 0; i < this.tags.length; i++) {
