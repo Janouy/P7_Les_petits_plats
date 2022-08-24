@@ -20,8 +20,8 @@ class Recipe {
             <img src="../picture/recipie.jpg" class="card-img-top" alt="recipe picture">
             <div class="card-body bg-card-body">
             <div class="card-title d-flex justify-content-around mb-4">
-                <div class="col-9 fs-5 fw-bold">${this.name}</div>
-                <div class="col-3 fw-bold d-flex justify-content-between"><i class="fa-regular fa-clock"></i> ${this.time} min</div>
+                <div class="col-8 fs-5 fw-bold">${this.name}</div>
+                <div class="col-4 fw-bold text-center"><i class="fa-regular fa-clock"></i> ${this.time} min</div>
             </div>
             <div class="row d-flex justify-content-between">
                 <ul class="card-text ingredient-wrapper fw-bold col-7">${this.ingredients.show()}</ul>

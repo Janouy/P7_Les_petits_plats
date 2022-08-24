@@ -9,6 +9,7 @@ class Recipes_M {
 		//affiche les recettes triées selon la recherche de la searchBar principale
 		searchBar.addEventListener("input", () => {
 			if (searchBar.value.length >= 3) {
+				this.recipes = data.map((recipe) => new Recipe(recipe));
 				this.applyFilters(searchBar.value.toLowerCase());
 			} else if (searchBar.value.length < 3 && this.page_M.tags.length === 0) {
 				this.recipes = data.map((recipe) => new Recipe(recipe));
@@ -33,7 +34,7 @@ class Recipes_M {
 			setTimeout(function () {
 				searchBar.value = "";
 				searchBar.placeholder = "Rechercher une recette...";
-			}, 1000);
+			}, 2000);
 		} else {
 			searchBar.value = "";
 			searchBar.placeholder = "Rechercher une recette...";
