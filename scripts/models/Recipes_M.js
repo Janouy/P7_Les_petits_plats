@@ -8,8 +8,11 @@ class Recipes_M {
 		const searchBar = document.getElementById("search-input");
 		//affiche les recettes triées selon la recherche de la searchBar principale
 		searchBar.addEventListener("input", () => {
-			if (searchBar.value.length >= 3) {
+			if (searchBar.value.length >= 3 && this.page_M.tags.length === 0) {
 				this.recipes = data.map((recipe) => new Recipe(recipe));
+				this.applyFilters(searchBar.value.toLowerCase());
+			} else if (searchBar.value.length >= 3 && this.page_M.tags.length >= 1) {
+				this.recipes = this.page_M.recipesFilteredWithtag;
 				this.applyFilters(searchBar.value.toLowerCase());
 			} else if (searchBar.value.length < 3 && this.page_M.tags.length === 0) {
 				this.recipes = data.map((recipe) => new Recipe(recipe));
